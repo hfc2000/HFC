@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>何富春 - 结构设计工程师简历</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --light-bg: #f8f9fa;
+            --border: #dee2e6;
+            --text: #333;
+            --text-light: #555;
+            --white: #ffffff;
+            --font-main: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+            --font-heading: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+            --radius: 8px;
+            --shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            background: #e9ecef;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+
+        .resume {
+            max-width: 850px;
+            width: 100%;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+            color: var(--white);
+            padding: 2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .header-left h1 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .header-left .subtitle {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-top: 0.35rem;
+            font-weight: 400;
+        }
+
+        .header-right {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 0.4rem 1.8rem;
+            font-size: 0.9rem;
+            opacity: 0.92;
+            justify-content: left;
+        }
+
+        .header-right .label {
+            font-weight: 300;
+            opacity: 0.7;
+        }
+
+        .header-right span:not(.label) {
+            font-weight: 500;
+        }
+       .img-call img{
+            height: 160px;
+       }
+
+        /* Section Title */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .section-title .icon {
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 2rem 2.5rem;
+        }
+
+        .section {
+            margin-bottom: 1.8rem;
+        }
+
+        /* Education */
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-item .school {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--secondary);
+        }
+
+        .edu-item .degree {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .edu-item .date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-left: auto;
+        }
+
+        .edu-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Work & Project Items */
+        .item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .item:hover {
+            border-left-color: var(--accent);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--secondary);
+        }
+
+        .item-role {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.85rem;
+            background: #eef5fb;
+            padding: 0.15rem 0.6rem;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .item-body {
+            color: var(--text);
+            font-size: 0.92rem;
+        }
+
+        .item-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-body ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .item-body ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .item-body .highlight {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .item-body .result-box {
+            margin-top: 0.5rem;
+            background: #f0f7f0;
+            border-left: 3px solid #27ae60;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0 6px 6px 0;
+            font-weight: 500;
+            color: #1e5f1e;
+            font-size: 0.9rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem 2rem;
+        }
+
+        .skill-cat {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .skill-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Awards */
+        .award-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+        }
+
+        .award-item {
+            font-size: 0.92rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .award-item::before {
+            content: "🏆";
+            font-size: 0.8rem;
+        }
+
+        .sub-section-title {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 0.8rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .resume {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 1.5rem;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+            .header-right {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>何富春</h1>
+                <div class="subtitle">意向岗位：结构工程师</div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="header-right">
+                <span class="label">性别</span><span>男</span>
+                <span class="label">出生年月</span><span>2000.01</span>
+                <span class="label">籍贯</span><span>湖南岳阳</span>
+                <span class="label">政治面貌</span><span>共青团员</span>
+                <span class="label">电话</span><span>156-1653-4280</span>
+                <span class="label">邮箱</span><span>hfc_usc@163.com</span>
+            </div>
+            <div class="img-call">
+                <img src="/HFC/img1.png" alt="">
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+
+            <!-- 教育经历 -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🎓</span> 教育经历
+                </div>
+                <div class="edu-item">
+                    <span class="school">南华大学</span>
+                    <span class="degree">机械工程 · 硕士</span>
+                    <span class="date">2022.09 – 2025.06</span>
+                </div>
+                <div class="edu-desc">
+                    研究方向：代理模型及优化算法、结构有限元分析。<br>
+                    硕士论文：《改进DMO算法在核燃料组件胀接与包壳磨损控制的应用》
+                </div>
+            </div>
+
+            <!-- 工作经历（新增） -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">💼</span> 工作经历
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">格力电器 · 生活电器板块</span>
+                        <span class="item-date">2025.06 – 至今</span>
+                    </div>
+                    <div class="item-body">
+                        <ul>
+                            <li>担任<span class="highlight">结构工程师</span>，负责出口冷风扇、塔扇等产品的结构设计与项目开发</li>
+                            <li>主导出口机型结构可行性评估、样机试制跟进及结构相关测试验证，对产品在海外市场的结构可靠性负责</li>
+                            <li>熟悉注塑/钣金模具跟进、DFM评审、改模流程及整机可靠性测试标准（跌落、振动、长运等）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工作项目经历 -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">📁</span> 工作项目经历
+                </div>
+
+                <!-- 项目1：摇头结构强化 -->
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">立式冷风扇摇头强化结构设计</span>
+                        <span class="item-role">结构负责人</span>
+                    </div>
+                    <div class="item-body">
+                        <p><span class="highlight">需解决问题：</span>冷风扇摇头机构位于整机底部。当用户踩住底盘强行转动机身时，力被成倍放大传递至摇头电机与注塑件螺钉柱，导致电机端盖变形、螺钉柱断裂，摇头功能失效。</p>
+                        <p><span class="highlight">设计方案：</span></p>
+                        <ul>
+                            <li>在摇头电机上增加金属支撑板，不更换电机的前提下提高电机端盖承载能力</li>
+                            <li>同步修改注塑件模型，为螺钉柱增加围筋支撑，提高局部结构强度</li>
+                        </ul>
+                        <p><span class="highlight">方案验证：</span></p>
+                        <ul>
+                            <li>基于ANSYS对支撑板与加强螺钉柱进行结构仿真分析，为改模推进提供数据支撑</li>
+                            <li>手板阶段使用拉力计进行多组重复实验验证，改进后结构强度优于原方案及竞品设计</li>
+                        </ul>
+                        <div class="result-box">
+                            ✅ 成果：支撑板新开钣金模具，相关注塑件模具完成调整。该改进结构已应用于超5款机型，方案实现标准化，通用性高。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目2：出口北美冷风扇 -->
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">出口北美5L冷风扇 (KSWA-05X62Dg) 项目开发</span>
+                        <span class="item-role">主要参与人</span>
+                    </div>
+                    <div class="item-body">
+                        <p><span class="highlight">项目需求：</span>在内销5L冷风扇基础上派生北美出口机型。根据北美法规，可接触注塑材料必须满足食品级要求，整机须通过ETL、IEC等认证。</p>
+                        <p><span class="highlight">挑战与解决方案：</span></p>
+                        <ul>
+                            <li><span class="highlight">材料切换：</span>从普通PP切换为食品级PP，跟进试模确保模具兼容性，保证注塑成型质量</li>
+                            <li><span class="highlight">可靠性验证：</span>完成摇头机构10万次加速试验，电源线断线率控制在10%以内</li>
+                            <li><span class="highlight">电压适配：</span>北美120V/60Hz电源标准，协调电气所打样异步主电机与同步摇头电机，实装验证噪声与EMC性能</li>
+                            <li><span class="highlight">认证统筹：</span>合理安排试制样机，内部测试同时外发第三方认证机构取证，确保项目节点不延期</li>
+                        </ul>
+                        <div class="result-box">
+                            ✅ 成果：ETL、IEC双认证完成取证，机型顺利量产，前期1.2万台已完成出货。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目3：出口菲律宾直流塔扇（重点优化） -->
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">出口菲律宾直流塔扇 (FLZWD-09X68Bg) 项目开发</span>
+                        <span class="item-role">项目负责人</span>
+                    </div>
+                    <div class="item-body">
+                        <p><span class="highlight">项目需求与目标：</span>内销塔扇需快速导入菲律宾市场。项目核心约束为<span class="highlight">结构件零改动</span>，仅允许更换电源适配器，以最低成本、最短周期实现合规出口。</p>
+                        <p><span class="highlight">挑战与工程判断：</span></p>
+                        <ul>
+                            <li><span class="highlight">环境适应性风险预判：</span>菲律宾为高温高湿热带气候。虽内销结构已成熟量产，仍主动识别冷凝水积聚与金属件锈蚀风险。要求供应商提供风轮、电机轴防锈等级数据，并在公司盐雾试验室完成48小时盐雾试验，前置验证通过，关闭风险项。</li>
+                            <li><span class="highlight">适配器更换的接口验证：</span>外购宽电压适配器尺寸与内销存在差异。重新校核适配器仓配合间隙与固定方式，通过内部走线整理规避干涉风险，<span class="highlight">在不修改任何注塑模具及包装材料的前提下</span>保证装配一致性与包材通用性。</li>
+                            <li><span class="highlight">完备的测试与评审主导：</span>作为项目负责人，跟进样机试制，独立输出安规检查、结构审查、高低温运行等全套测试报告，作为项目办评审放行的结构端核心依据。</li>
+                        </ul>
+                        <div class="result-box">
+                            ✅ 成果：产品顺利通过出口项目办评审，实现<strong>结构件及模具零修改</strong>，研发与模具费显著节省。第一批出货6千台已完成。该项目被部门作为后续改型出口项目的标准评估流程参考。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 硕士期间项目经历 -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🔬</span> 硕士期间项目经历
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">核燃料组件胀接工艺分析与优化（中核建中）</span>
+                        <span class="item-role">主要参与人</span>
+                        <span class="item-date">2022.10 – 2024.11</span>
+                    </div>
+                    <div class="item-body">
+                        <ul>
+                            <li>使用SolidWorks构建胀接部位几何模型，运用HyperMesh完成网格划分，搭建Ansys结构仿真模型</li>
+                            <li>基于仿真数据构建Kriging代理模型，结合智能优化算法对工艺参数进行优化分析</li>
+                            <li>研究成果发表EI论文一篇</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">智能优化算法改进与自适应Kriging采样方法开发</span>
+                        <span class="item-role">项目负责人</span>
+                        <span class="item-date">2023.06 – 2025.04</span>
+                    </div>
+                    <div class="item-body">
+                        <ul>
+                            <li>针对新提出的DMO智能优化算法存在的不足，提出混合改进策略进行算法优化</li>
+                            <li>提出自适应Kriging采样方法，搭建模型测试平台（MATLAB）完成验证</li>
+                            <li>相关SCI论文一篇在投</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">某装药参数化建模分析软件开发（国防科大合作）</span>
+                        <span class="item-role">主要参与人</span>
+                        <span class="item-date">2023.01 – 2023.11</span>
+                    </div>
+                    <div class="item-body">
+                        <ul>
+                            <li>利用Creo参数化建模能力构建装药参数化模型，实现从建模到分析的参数化调整</li>
+                            <li>项目于2023年11月完成结项</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">湖南省大学生工程训练综合能力竞赛</span>
+                        <span class="item-role">项目负责人</span>
+                        <span class="item-date">2021.05 – 2022.03</span>
+                    </div>
+                    <div class="item-body">
+                        <ul>
+                            <li>以重力势能驱动车为赛题，负责整车二级传动系统设计、转向机构设计及零部件选型</li>
+                            <li>对车架进行轻量化设计，运用增材制造技术加工部分零部件，完成组装调试并参赛</li>
+                            <li>获省赛二等奖</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 专业技能 -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">⚙️</span> 专业技能
+                </div>
+                <div class="skills-grid">
+                    <div>
+                        <span class="skill-cat">结构设计：</span>
+                        <span class="skill-desc">熟练运用SolidWorks三维建模，熟练Creo结构参数化建模</span>
+                    </div>
+                    <div>
+                        <span class="skill-cat">仿真分析：</span>
+                        <span class="skill-desc">有Ansys结构分析优化经验，掌握HyperMesh网格划分</span>
+                    </div>
+                    <div>
+                        <span class="skill-cat">算法编程：</span>
+                        <span class="skill-desc">掌握MATLAB、HTML，有DMO优化算法与自适应代理模型编程经验</span>
+                    </div>
+                    <div>
+                        <span class="skill-cat">工程实践：</span>
+                        <span class="skill-desc">熟悉注塑/钣金模具跟进、DFM评审、改模流程与整机可靠性测试</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 荣誉奖励 -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🏅</span> 荣誉奖励
+                </div>
+                <div class="sub-section-title">硕士期间</div>
+                <div class="award-list">
+                    <span class="award-item">中国国际"互联网+"大学生创新创业大赛 国赛铜奖</span>
+                    <span class="award-item">南华大学机械工程学科研究生学术创新论坛 学术报告二等奖</span>
+                    <span class="award-item">研究生二等学业奖学金</span>
+                    <span class="award-item">研究生三等学业奖学金</span>
+                </div>
+                <div class="sub-section-title">本科期间</div>
+                <div class="award-list">
+                    <span class="award-item">大学生先进成图技术与创新大赛 建模国赛一等奖</span>
+                    <span class="award-item">图学知识 国赛二等奖</span>
+                    <span class="award-item">第六届工程训练综合能力竞赛 势能驱动车 省赛二等奖</span>
+                    <span class="award-item">校级"优秀毕业生"</span>
+                </div>
+            </div>
+
+            <!-- 自我评价 -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">📝</span> 自我评价
+                </div>
+                <p style="font-size:0.95rem; color:var(--text);">
+                    逻辑思维清晰，自我学习能力较强。具备从整机架构、详细设计到量产交付的完整项目经历，习惯从DFM和成本角度反推设计优化。掌握注塑/钣金成型工艺及模具知识，具备扎实的力学仿真基础，能快速适应不同领域的产品结构开发。沟通协作能力良好，团队责任感强。
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
