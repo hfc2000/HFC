@@ -178,6 +178,19 @@
             flex-wrap: wrap;
             margin-bottom: 0.5rem;
         }
+        .learn-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        .learn-header >:first-child{
+            margin-right: auto;
+        }
+        .learn-header > :nth-child(2) {
+             margin-right: 40px;   /* 固定间距，可以改成任意值，如 1rem, 16px 等 */
+        }
 
         .item-title {
             font-weight: 700;
@@ -311,6 +324,14 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* 推荐写法：同时兼容新旧浏览器 */
+        @media print {
+        * {
+            -webkit-print-color-adjust: exact !important; /* 用于 Chrome、Safari、Edge */
+            print-color-adjust: exact !important;        /* 现代浏览器标准属性 */
+        }
+        }
+
     </style>
 </head>
 <body>
@@ -336,7 +357,7 @@
                 <span class="label">邮箱</span><span>hfc_usc@163.com</span>
             </div>
             <div class="img-call">
-                <img src="/HFC/img1.png" alt="">
+                <img src="img1.png" alt="">
             </div>
         </div>
 
@@ -458,9 +479,9 @@
                 </div>
 
                 <div class="item">
-                    <div class="item-header">
+                    <div class="learn-header">
                         <span class="item-title">核燃料组件胀接工艺分析与优化（中核建中）</span>
-                        <span class="item-role">主要参与人</span>
+                        <span class="item-role" >主要参与人</span>
                         <span class="item-date">2022.10 – 2024.11</span>
                     </div>
                     <div class="item-body">
@@ -473,7 +494,7 @@
                 </div>
 
                 <div class="item">
-                    <div class="item-header">
+                    <div class="learn-header">
                         <span class="item-title">智能优化算法改进与自适应Kriging采样方法开发</span>
                         <span class="item-role">项目负责人</span>
                         <span class="item-date">2023.06 – 2025.04</span>
@@ -488,7 +509,7 @@
                 </div>
 
                 <div class="item">
-                    <div class="item-header">
+                    <div class="learn-header">
                         <span class="item-title">某装药参数化建模分析软件开发（国防科大合作）</span>
                         <span class="item-role">主要参与人</span>
                         <span class="item-date">2023.01 – 2023.11</span>
@@ -502,7 +523,7 @@
                 </div>
 
                 <div class="item">
-                    <div class="item-header">
+                    <div class="learn-header">
                         <span class="item-title">湖南省大学生工程训练综合能力竞赛</span>
                         <span class="item-role">项目负责人</span>
                         <span class="item-date">2021.05 – 2022.03</span>
