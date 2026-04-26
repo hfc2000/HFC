@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "18842728",
+      "name": "回到顶部",
+      "font_class": "a1",
+      "unicode": "e939",
+      "unicode_decimal": 59705
+    },
+    {
+      "icon_id": "26911732",
+      "name": "xiazaitubiao",
+      "font_class": "xiazaitubiao",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    }
+  ]
+}

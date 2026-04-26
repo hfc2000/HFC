@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1777171435313') format('truetype');
+}
+
+.iconfont_top {
+  font-family: "iconfont" !important;
+  font-size: 33px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgb(107, 182, 211);
+  opacity: 0;
+}
+
+.iconfont_top.show {
+    opacity: 0.1;
+    visibility: visible;
+}
+
+.iconfont_top:hover{
+  opacity: 1;
+  transform: scale(2);
+  transform:  translateY(-3px);
+  transition: transform 0.5s;
+}
+
+.iconfont_download {
+  font-family: "iconfont" !important;
+  font-size: 30px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgb(84, 177, 149);
+  opacity: 0.1;
+}
+
+.iconfont_download:hover{
+  opacity: 1;
+  transform:  translateY(-3px);
+  transition: transform 0.5s;
+}
+
+.icon-a1:before {
+  content: "\e939";
+}
+
+.icon-xiazaitubiao:before {
+  content: "\e618";
+}
+
